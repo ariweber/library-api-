@@ -29,7 +29,7 @@ library_db
 
 ## Project Structure
 
-```text
+
 library-api/
 │
 ├── app/
