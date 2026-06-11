@@ -2,7 +2,7 @@
 
 ## Project Description
 
-This project is a library API.
+This project is a simple library API.
 
 The system is built with FastAPI and MySQL.
 
