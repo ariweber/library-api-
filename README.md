@@ -182,7 +182,7 @@ python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 
 Run the server:
-uvicorn app.main:app --reload
+uvicorn main:app --reload
 The API will be available at:
 http://localhost:8000/docs
 
