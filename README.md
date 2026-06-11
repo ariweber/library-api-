@@ -29,7 +29,7 @@ library_db
 
 ## Project Structure
 
-
+```
 library-api/
 │
 ├── app/
@@ -48,7 +48,7 @@ library-api/
 ├── README.md
 ├── requirements.txt
 └── .gitignore
-
+```
 
 
 ## Database Tables
