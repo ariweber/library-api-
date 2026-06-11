@@ -9,7 +9,7 @@ def get_connection():
 
 def create_tables():
     conn = get_connection()
-    cursor = conn.cursor()
+    cursor = conn.cursor(dictionary=True)
     cursor.execute("""CREATE TABLE IF NOT EXISTS members (id INT AUTO_INCREMENT PRIMARY KEY,
     email VARCHAR(50) UNIQUE,
     name VARCHAR(50) NOT NULL,

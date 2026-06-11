@@ -12,9 +12,7 @@ app.include_router(router_report)
 
 
 if __name__ == "__main__":
-    get_connection()
-    a =create_tables()
-    print(a)
-
+    pass
+  
 
 
