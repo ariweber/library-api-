@@ -60,7 +60,7 @@ Fields:
 * id | int auto-increment primary key
 * title | varchar(200)
 * author | varchar(200)
-* genre enum |('Fiction', 'Non-Fiction', 'Science', 'History', 'Other')
+* genre  |enum('Fiction', 'Non-Fiction', 'Science', 'History', 'Other')
 * is_available | boolean
 * borrowed_by_member_id | nullable, foreign key to members.id
 
@@ -174,13 +174,19 @@ time | level | message
 
 Install packages:
 pip install -r requirements.txt
-
 Start MySQL container:
 docker start library-mysql
 
+Create a venv:
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 
 Run the server:
 uvicorn app.main:app --reload
+The API will be available at:
+http://localhost:8000/docs
+
+
 
 
 
