@@ -23,8 +23,6 @@ docker run --name library-mysql \
 
 
 The database name is:
-
-
 library_db
 
 ## Project Structure
