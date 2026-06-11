@@ -58,8 +58,8 @@ The books table saves all the books in the library.
 Fields:
 
 * id | int auto-increment primary key
-* title | max(200)
-* author | max(200)
+* title | varchar(200)
+* author | varchar(200)
 * genre enum |('Fiction', 'Non-Fiction', 'Science', 'History', 'Other')
 * is_available | boolean
 * borrowed_by_member_id | nullable, foreign key to members.id
@@ -72,8 +72,8 @@ The members table saves all the library members.
 Fields:
 
 * id | int auto-increment primary key
-* name | max(50)
-* email| max(50) unique
+* name | varchar(50)
+* email | varchar(50) unique
 * is_active | boolean
 * total_borrows | int
 
