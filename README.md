@@ -2,7 +2,7 @@
 
 ## Project Description
 
-This project is a simple library API.
+This project is a library API.
 
 The system is built with FastAPI and MySQL.
 
@@ -10,7 +10,7 @@ The API can manage books and library members.
 It can also borrow books, return books, and show simple reports.
 
 
-## Docker MySQL
+## Installations Docker MySQL
 
 To create the MySQL container, run this command:
 
@@ -50,6 +50,7 @@ library-api/
 └── .gitignore
 
 
+
 ## Database Tables
 
 ### Books Table
@@ -58,21 +59,12 @@ The books table saves all the books in the library.
 
 Fields:
 
-* id
-* title
-* author
-* genre
-* is_available
-* borrowed_by_member_id
-
-Allowed genres:
-
-
-Fiction
-Non-Fiction
-Science
-History
-Other
+* id | int auto-increment primary key
+* title | max(200)
+* author | max(200)
+* genre enum |('Fiction', 'Non-Fiction', 'Science', 'History', 'Other')
+* is_available | boolean
+* borrowed_by_member_id | nullable, foreign key to members.id
 
 
 ### Members Table
@@ -81,15 +73,16 @@ The members table saves all the library members.
 
 Fields:
 
-* id
-* name
-* email
-* is_active
-* total_borrows
+* id | int auto-increment primary key
+* name | max(50)
+* email| max(50) unique
+* is_active | boolean
+* total_borrows | int
 
 ## System Rules
 
 * A new book is available by default.
+* A genre must be one of the following: Fiction, Non-Fiction, Science, History, Other.
 * A new member is active by default.
 * Email must be unique.
 * An inactive member cannot borrow books.
@@ -98,8 +91,6 @@ Fields:
 * A book can be returned only by the member who borrowed it.
 
 ## Endpoints
-
-## Books
 
 ### Books
 
@@ -163,8 +154,8 @@ When a member borrows a book, the system checks:
 
 * the book exists
 * the member exists
-* the book is available
 * the member is active
+* the book is available
 * the member has less than 3 borrowed books
 
 If all checks are valid, the book becomes not available.
@@ -174,46 +165,24 @@ When a member returns a book, the system checks that the same member really borr
 ## Logging
 
 Logs are saved in:
-
 app/logs/app.log
 
-
 Log format:
-
-
 time | level | message
 
-Example:
-
-2026-06-07 10:30:12 | INFO | POST /books called
-2026-06-07 10:30:13 | ERROR | Book not found: 42
 
 
 ## How to Run
 
 Install packages:
-
-
 pip install -r requirements.txt
 
-
 Start MySQL container:
-
 docker start library-mysql
 
 
 Run the server:
-
-
 uvicorn app.main:app --reload
 
-Open Swagger:
 
 
-http://127.0.0.1:8000/docs
-
-## Project Goal
-
-The goal of this project is to build a simple API server with FastAPI and MySQL.
-
-The project should have clean code, clear files, logging, and all required endpoints.
