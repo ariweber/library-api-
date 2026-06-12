@@ -1,9 +1,8 @@
 from fastapi import FastAPI
-from routers.book.routes import router as router_book
-from routers.member.routes import router as router_member
-from routers.report.routes import router as router_report
-from database.connection import get_connection, create_tables
-
+from routers.book_routes import router as router_book
+from routers.report_routes  import router as router_member
+from routers.member_routes import router as router_report
+from database.connection import get_connection
 app = FastAPI()
 
 app.include_router(router_book)
